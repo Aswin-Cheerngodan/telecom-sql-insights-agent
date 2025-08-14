@@ -153,24 +153,33 @@ logger.info(f"Custom system prompt for the Agent: \n{custom_system_prompt}")
 
 
 def create_agent_executor(database_path: str, top_k: int = 5):
+    """Set up and creates react agent for sql creation execution and 
+    generating insights
+
+    Args:
+        database_path (str): Path name of the sql database
+        top_k: Maximum number of rows that the ai generated sql query should return
+    Returns:
+        react_agent: langgraph react agent with llm, tools and prompt
+    """
     try:
-        # DB connection
+        # Creating DB connection
         engine = create_engine(f"sqlite:///{database_path}", echo=False)
         db = SQLDatabase(engine)
         logger.info(f"Database loaded for the agent")
 
-        # Initialize model
+        # Initializing model
         llm = init_chat_model(
             "gemini-2.5-flash",
             model_provider="google_genai"
         )
         logger.info(f"LLM created for the agent")
 
-        # Toolkit
+        # Creating Toolkit
         toolkit = SQLDatabaseToolkit(db=db, llm=llm)
         logger.info(f"Database toolkit loaded for the agent")
 
-        # Prompt
+        # Formatting prompt
         system_message = custom_system_prompt.format(
             dialect="SQLite",
             top_k=top_k,
@@ -178,7 +187,8 @@ def create_agent_executor(database_path: str, top_k: int = 5):
             few_shots=few_shots
         )
         logger.info(f"system message updated for the agent")
-        
+
+        # Creating the react agent with llm, tookit and promt
         return create_react_agent(llm, toolkit.get_tools(), prompt=system_message)
     except Exception as e:
         logger.error(f"Error occured during react agent creation: {e}", exc_info=True)
