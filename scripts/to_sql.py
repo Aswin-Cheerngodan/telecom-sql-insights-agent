@@ -2,9 +2,8 @@
 # import sqlite3
 
 # # Read the Excel file
-# excel_file = "data/Assignment_Mock_data_AIEngineer.xlsx"  # Replace with your file path
+# excel_file = "data/Assignment_Mock_data_AIEngineer.xlsx" 
 
-# # two sheets: mapping_data and main_data
 # main_df = pd.read_excel(excel_file, sheet_name=0)  # first sheet
 
 # # Connect to SQLite database (creates if not exists)
@@ -45,7 +44,7 @@ engine = create_engine('sqlite:///telecom_data.db', echo=False)
 # Write DataFrame to SQL tables
 main_data_df.to_sql('usage_logs', engine, if_exists='replace', index=False)
 
-print("✅ Data successfully written to SQL database!")
+print("Data successfully written to SQL database!")
 
 # Test a query
 query = """
