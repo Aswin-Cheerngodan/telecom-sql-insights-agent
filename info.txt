@@ -1,0 +1,6 @@
+1. POV document is added as pdf.
+
+2. The screenshots of the results are stored in the results folder.
+The results from testing and with all the business queries can be seen in logs folder.
+
+3. A README.md file is added to guide the project running.
