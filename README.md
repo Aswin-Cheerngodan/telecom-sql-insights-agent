@@ -12,20 +12,20 @@ The system is tailored for **Roaming Data Analytics** in telecom, where quick an
 ---
 
 ## Project Structure
-├── data/ # Data files
-├── logs/ # logs
-├── scripts/ # Extra scripts for project
-├── src/ # Main source code
-│ ├── utils/ # Helper modules
-│ │ ├── init.py
-│ ├── app.py # Streamlit web application
-│ ├── main.py # Core agent creation and configuration
-├── tests/ # Unit tests
-├── venv/ # Python virtual environment
-├── .env # Environment variables (not committed to Git)
-├── telecom_data.db # SQLite database with telecom roaming data
-├── requirements.txt # Python dependencies
-├── README.md # Project documentation
+├── data/ # Data files   
+├── logs/ # logs    
+├── scripts/ # Extra scripts for project    
+├── src/ # Main source code    
+│ ├── utils/ # Helper modules   
+│ │ ├── init.py   
+│ ├── app.py # Streamlit web application    
+│ ├── main.py # Core agent creation and configuration   
+├── tests/ # Unit tests   
+├── venv/ # Python virtual environment       
+├── .env # Environment variables (not committed to Git)   
+├── telecom_data.db # SQLite database with telecom roaming data   
+├── requirements.txt # Python dependencies   
+├── README.md # Project documentation   
 
 ---
 
